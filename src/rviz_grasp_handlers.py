@@ -232,7 +232,7 @@ class RvizGraspSaver(RvizGraspHandler):
                     pose = Pose()
                     pose.position = Point(*trans)
                     pose.orientation = Quaternion(*rot)
-                    gripper_width = self.gripper_width_subscriber.last_msg.
+                    gripper_width = self.gripper_width_subscriber.last_msg.data
 
                     # Some modifications here.
                     while True:
