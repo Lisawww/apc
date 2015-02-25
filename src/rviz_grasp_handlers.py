@@ -235,16 +235,15 @@ class RvizGraspSaver(RvizGraspHandler):
                     gripper_width = self.gripper_width_subscriber.last_msg.
 
                     # Some modifications here.
-                    grasp = Grasp(pose, gripper_width)
                     while True:
                         label = raw_input("Enter a grasp label: ");
                         if label in self.grasps:
                             t = raw_input("Overwrite? [y] or [n]: ")
                             if t == "y":
-                                self.grasps[label] = grasp
+                                self.grasps[label] = Grasp(label, pose, gripper_width)
                                 break
                         else:
-                            self.grasps[label] = grasp
+                            self.grasps[label] = Grasp(label, pose, gripper_width)
                             break
                     
                     rospy.logwarn('saving grasp: SUCCESS!')
