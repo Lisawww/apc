@@ -1,6 +1,6 @@
 [
     {
-        "label": "g1",
+        "label": "grasp 1",
         "flag": false, 
         "pose": {
             "position": {
@@ -18,7 +18,7 @@
         "gripper_width": 0.06
     }, 
     {
-        "label": "g2",
+        "label": "grasp 2"
         "flag": false, 
         "pose": {
             "position": {

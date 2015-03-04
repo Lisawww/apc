@@ -305,8 +305,8 @@ if __name__ == "__main__":
     parser.add_argument('--gripper-grasps-topic', default=None, type=topic)
     parser.add_argument('--gripper-width-topic', default=None, type=topic)
     parser.add_argument('--update-rate', type=int)
-    parser.add_argument('-k', '--keep-old-grasps', action='store_true')
-    parser.add_argument('-m', '--modify-grasps', action='store_true')
+    parser.add_argument('-k', '--keep-old-grasps', default=True, action='store_true')
+    parser.add_argument('-m', '--modify-grasps', default=False, action='store_true')
     args = parser.parse_known_args()[0]
 
     if args.mode == 0:
