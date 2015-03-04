@@ -102,9 +102,9 @@ class RvizGraspHandler(ROSNode):
                 ordered_grasps = []
                 for label in self.labels:
                     grasp = self.grasps[label]
-                    ordered_grasps.append(grasp.to_json)
+                    ordered_grasps.append(grasp.to_json())
 
-                json.dumps(ordered_grasps, f, indent=4, separators=(', ', ': '))
+                json.dump(ordered_grasps, f, indent=4, separators=(', ', ': '))
 
         self.object_moves_publisher.publish(RvizMarkerPublisher.QUIT_MOVE)
         self.gripper_moves_publisher.publish(RvizMarkerPublisher.QUIT_MOVE)
