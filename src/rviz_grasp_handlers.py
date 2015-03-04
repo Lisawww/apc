@@ -141,7 +141,7 @@ class RvizGraspViewer(RvizGraspHandler):
             self.current_grasp_label = self.labels[self.current_grasp_index]
 
     # A new method.
-    def _handle_labeled_grasp_move():
+    def _handle_labeled_grasp_move(self):
         """ Display the grasp with the label according to user input.  """
         while True:
             label = raw_input("Enter a grasp label: ")
@@ -152,10 +152,10 @@ class RvizGraspViewer(RvizGraspHandler):
             else:
                 rospy.logerr("No grasp labeled {}".format(label))
 
-    def _handle_display_label():
+    def _handle_display_label(self):
         """ Display the name and the index of the current grasp."""
-        rospy.logwarn("The grasp has label {0}, index {1}.".format(current_grasp_label,
-                                                                   current_grasp_index))
+        rospy.logwarn("The grasp has label {0}, index {1}.".format(self.current_grasp_label,
+                                                                   self.current_grasp_index))
 
     def create_move_handlers_dict(self):
         self.move_handlers_dict = {
@@ -217,7 +217,7 @@ class RvizGraspViewer(RvizGraspHandler):
         self.update_grasp()
 
         ch = getch()
-        while ch != self.QUIT_MOVE and ch in self.move_handlers_dict:
+        while ch != self.QUIT_MOVE:
             self.execute_move(ch)
             ch = getch()
 
