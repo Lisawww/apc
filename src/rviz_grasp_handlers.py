@@ -45,7 +45,7 @@ class Grasp(object):
         o = self.pose.orientation
 
         d = {
-            'label': self.label
+            'label': self.label,
             'pose': {
                 'position': {'x': p.x, 'y': p.y, 'z': p.z},
                 'orientation': {'x': o.x, 'y': o.y, 'z': o.z, 'w': o.w}
@@ -223,6 +223,7 @@ class RvizGraspViewer(RvizGraspHandler):
 
     def execute_move(self, move):
         self.move_handlers_dict[move]()
+        rospy.logwarn(self.current_grasp_label)
         self.update_grasp()
 
 
