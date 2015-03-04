@@ -217,7 +217,7 @@ class RvizGraspViewer(RvizGraspHandler):
         self.update_grasp()
 
         ch = getch()
-        while ch != self.QUIT_MOVE:
+        while ch != self.QUIT_MOVE and ch in self.move_handlers_dict:
             self.execute_move(ch)
             ch = getch()
 
